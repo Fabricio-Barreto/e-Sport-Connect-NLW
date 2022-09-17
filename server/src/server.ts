@@ -1,9 +1,25 @@
-import express, { query } from "express"
+import express from "express"
 import { PrismaClient } from '@prisma/client'
 import { convertHoursStringToMinutes } from "./utils/convert-hours-string-to-minutes"
+import cors from 'cors'
+
+const options: cors.CorsOptions = {
+    allowedHeaders: [
+      'Origin',
+      'X-Requested-With',
+      'Content-Type',
+      'Accept',
+      'X-Access-Token',
+    ],
+    credentials: true,
+    methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+    origin: 'http://127.0.0.1:5173',
+    preflightContinue: false,
+  };
 
 const app = express()
 
+app.use(cors(options));
 app.use(express.json())
 
 const prisma = new PrismaClient({
@@ -20,7 +36,7 @@ app.get('/games', async (req, res) => {
             }
         }
     })
-
+    console.log(games)
     return res.json(games)
 })
 
