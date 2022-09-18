@@ -11,6 +11,15 @@ Nessa NLW foi usado
 - Tailwind CSS
 - Node
 
+Inicie primeiro o backend (server) rodando o camando 
+>npm run dev 
+
+Para rodar a aplicação Web, basta rodar o camando
+>npm run dev
+
+Para rodar a aplicação Mobile, bastar rodar o comando
+>expo start
+
 ### web
 ![image](https://user-images.githubusercontent.com/63824002/190924920-d94dcaba-fa4d-4940-af1a-a3d74b2f943f.png )
 
